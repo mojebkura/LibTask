@@ -5,12 +5,12 @@ require_once __DIR__ . '/../src/function.php';
 require_once __DIR__ . '/../src/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $books_id    = $_POST['books_id'];
-    $users_id    = $_POST['users_id'];
-    $give_date   = $_POST['give_date'];
-    $due_date    = $_POST['due_date'];
+    $books_id = $_POST['books_id'];
+    $users_id = $_POST['users_id'];
+    $give_date = $_POST['give_date'];
+    $due_date  = $_POST['due_date'];
     $return_date = $_POST['return_date'] ?: null;
-    $status      = $_POST['status'] ?? 'Выдана';
+    $status  = $_POST['status'] ?? 'Выдана';
 
     $book = getBookById($pdo, $books_id);
 
@@ -21,9 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (AddLoan($pdo, $books_id, $users_id, $give_date, $due_date, $return_date, $status)) {
-        UpdateBook($pdo, $books_id, $book['name'], $book['publish_date'],
-                $book['all_quantity'], $book['free_quantity'] - 1,
-                $book['author_id'], $book['genre_id']);
+        UpdateBook($pdo, $books_id,
+                $book['name'],
+                $book['publish_date'],
+                $book['all_quantity'],
+                $book['free_quantity'] - 1,
+                $book['author_id'],
+                $book['genre_id']);
 
         $_SESSION['message_success'] = 'Выдача добавлена';
         header('Location: show_loan.php');

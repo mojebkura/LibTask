@@ -9,27 +9,27 @@ $book = getBookById($pdo, $id);
 
 if (!$book) {
     $_SESSION['msg_error'] = 'Книга не найдена';
-    header('Location: show_book.php');
+    header('Location: /books/show_books.php');
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name          = $_POST['name'];
-    $publish_date  = $_POST['publish_date'];
-    $all_quantity  = $_POST['all_quantity'];
+    $name  = $_POST['name'];
+    $publish_date = $_POST['publish_date'];
+    $all_quantity = $_POST['all_quantity'];
     $free_quantity = $_POST['free_quantity'];
-    $author_id     = $_POST['author_id'];
-    $genre_id      = $_POST['genre_id'];
+    $author_id = $_POST['author_id'];
+    $genre_id  = $_POST['genre_id'];
 
     if (!$name || !$author_id || !$genre_id) {
         $_SESSION['msg_error'] = 'Заполните название, автора и жанр';
-        header("Location: edit_book.php?id=$id");
+        header("Location: /books/edit_books.php?id=$id");
         exit;
     }
 
     UpdateBook($pdo, $id, $name, $publish_date, $all_quantity, $free_quantity, $author_id, $genre_id);
     $_SESSION['message_success'] = 'Книга обновлена';
-    header('Location: show_book.php');
+    header('Location: /books/show_books.php');
     exit;
 }
 

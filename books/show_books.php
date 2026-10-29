@@ -19,8 +19,8 @@ $books = SelectBooks($pdo);
                 <li class="nav-item"><a class="nav-link" href="/loans/show_loan.php">Выдачи</a></li>
                 <li class="nav-item"><a class="nav-link" href="/authors/show_author.php">Авторы</a></li>
                 <li class="nav-item"><a class="nav-link" href="/genres/show_genre.php">Жанры</a></li>
-                <li class="nav-item"><a class="nav-link" href="/books/show_book.php">Книги</a></li>
-                <li class="nav-item"><a class="nav-link" href="/users/show_user.php">Пользователи</a></li>
+                <li class="nav-item"><a class="nav-link" href="/books/show_books.php">Книги</a></li>
+                <li class="nav-item"><a class="nav-link" href="/users/show_users.php">Пользователи</a></li>
                 <li class="nav-item"><a class="nav-link" href="/logic/logic.php">Аналитика</a></li>
             </ul>
         </div>
@@ -29,7 +29,7 @@ $books = SelectBooks($pdo);
 
 <div class="container mt-3">
     <h1>Книги</h1>
-    <a href="add_book.php" class="btn btn-success mb-3">Добавить книгу</a>
+    <a href="/books/add_books.php" class="btn btn-success mb-3">Добавить книгу</a>
 
     <table class="table">
         <thead>
@@ -57,8 +57,8 @@ $books = SelectBooks($pdo);
                 <td><?php echo $author['name']; ?></td>
                 <td><?php echo $genre['name']; ?></td>
                 <td>
-                    <a href="delete_book.php?id=<?php echo $book['id']; ?>">Удалить</a>
-                    <a href="edit_book.php?id=<?php echo $book['id']; ?>">Изменить</a>
+                    <a href="/books/delete_books.php?id=<?php echo $book['id']; ?>">Удалить</a>
+                    <a href="/books/edit_books.php?id=<?php echo $book['id']; ?>">Изменить</a>
                 </td>
             </tr>
         <?php endforeach; ?>

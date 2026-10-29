@@ -28,10 +28,10 @@ function AddUser($pdo, $login, $email, $created_at, $password, $role = 'user') {
             VALUES (:login, :password, :email, :role, :created_at, 0)";
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([
-        ':login'      => $login,
-        ':password'   => $passwordHash,
-        ':email'      => $email,
-        ':role'       => $role,
+        ':login' => $login,
+        ':password' => $passwordHash,
+        ':email' => $email,
+        ':role' => $role,
         ':created_at' => $created_at,
     ]);
 }
@@ -53,10 +53,10 @@ function UpdateUser($pdo, $id, $login, $email, $role = 'user', $is_blocked = 0) 
             WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([
-        ':id'         => $id,
-        ':login'      => $login,
-        ':email'      => $email,
-        ':role'       => $role,
+        ':id'  => $id,
+        ':login'  => $login,
+        ':email' => $email,
+        ':role' => $role,
         ':is_blocked' => $is_blocked
     ]);
 }
@@ -139,12 +139,12 @@ function AddBook($pdo, $name, $publish_date, $all_quantity, $free_quantity, $aut
             VALUES (:name, :publish_date, :all_quantity, :free_quantity, :author_id, :genre_id)";
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([
-        ':name'          => $name,
-        ':publish_date'  => $publish_date,
-        ':all_quantity'  => $all_quantity,
+        ':name' => $name,
+        ':publish_date' => $publish_date,
+        ':all_quantity' => $all_quantity,
         ':free_quantity' => $free_quantity,
-        ':author_id'     => $author_id,
-        ':genre_id'      => $genre_id
+        ':author_id' => $author_id,
+        ':genre_id' => $genre_id
     ]);
 }
 function SelectBooks($pdo) {
@@ -161,22 +161,22 @@ function getBookById($pdo, $id) {
 }
 function UpdateBook($pdo, $id, $name, $publish_date, $all_quantity, $free_quantity, $author_id, $genre_id) {
     $sql = "UPDATE books
-            SET name          = :name,
-                publish_date  = :publish_date,
-                all_quantity  = :all_quantity,
+            SET name = :name,
+                publish_date = :publish_date,
+                all_quantity = :all_quantity,
                 free_quantity = :free_quantity,
-                author_id     = :author_id,
-                genre_id      = :genre_id
+                author_id = :author_id,
+                genre_id = :genre_id
             WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([
-        ':id'            => $id,
-        ':name'          => $name,
-        ':publish_date'  => $publish_date,
-        ':all_quantity'  => $all_quantity,
+        ':id' => $id,
+        ':name' => $name,
+        ':publish_date' => $publish_date,
+        ':all_quantity' => $all_quantity,
         ':free_quantity' => $free_quantity,
-        ':author_id'     => $author_id,
-        ':genre_id'      => $genre_id
+        ':author_id' => $author_id,
+        ':genre_id' => $genre_id
     ]);
 }
 function DeleteBook($pdo, $id) {
@@ -192,12 +192,12 @@ function AddLoan($pdo, $books_id, $users_id, $give_date, $due_date, $return_date
             VALUES (:books_id, :users_id, :give_date, :due_date, :return_date, :status)";
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([
-        ':books_id'    => $books_id,
-        ':users_id'    => $users_id,
-        ':give_date'   => $give_date,
-        ':due_date'    => $due_date,
+        ':books_id' => $books_id,
+        ':users_id' => $users_id,
+        ':give_date' => $give_date,
+        ':due_date' => $due_date,
         ':return_date' => $return_date,
-        ':status'      => $status
+        ':status' => $status
     ]);
 }
 function SelectLoans($pdo) {
@@ -225,24 +225,24 @@ function getLoanById($pdo, $id) {
     $stmt->execute([':id' => $id]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
-function UpdateLoans($pdo, $id, $books_id, $users_id, $give_date, $due_date, $return_date, $status) {
+function UpdateLoan($pdo, $id, $books_id, $users_id, $give_date, $due_date, $return_date, $status) {
     $sql = "UPDATE loans
-            SET books_id    = :books_id,
-                users_id    = :users_id,
-                give_date   = :give_date,
-                due_date    = :due_date,
+            SET books_id = :books_id,
+                users_id = :users_id,
+                give_date = :give_date,
+                due_date = :due_date,
                 return_date = :return_date,
-                status      = :status
+                status = :status
             WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([
-        ':id'          => $id,
-        ':books_id'    => $books_id,
-        ':users_id'    => $users_id,
-        ':give_date'   => $give_date,
-        ':due_date'    => $due_date,
+        ':id'  => $id,
+        ':books_id' => $books_id,
+        ':users_id' => $users_id,
+        ':give_date' => $give_date,
+        ':due_date' => $due_date,
         ':return_date' => $return_date,
-        ':status'      => $status
+        ':status' => $status
     ]);
 }
 function DeleteLoan($pdo, $id) {

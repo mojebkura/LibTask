@@ -4,26 +4,26 @@ require_once __DIR__ . '/../src/function.php';
 require_once __DIR__ . '/../src/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name         = $_POST['name'];
+    $name = $_POST['name'];
     $publish_date = $_POST['publish_date'];
     $all_quantity = $_POST['all_quantity'];
     $free_quantity = $all_quantity;
-    $author_id    = $_POST['author_id'];
-    $genre_id     = $_POST['genre_id'];
+    $author_id = $_POST['author_id'];
+    $genre_id = $_POST['genre_id'];
 
     if (!$name || !$author_id || !$genre_id) {
         $_SESSION['msg_error'] = 'Заполните все обязательные поля';
-        header('Location: add_book.php');
+        header('Location: add_books.php');
         exit;
     }
 
     if (AddBook($pdo, $name, $publish_date, $all_quantity, $free_quantity, $author_id, $genre_id)) {
         $_SESSION['message_success'] = 'Книга добавлена';
-        header('Location: show_book.php');
+        header('Location: show_books.php');
         exit;
     } else {
         $_SESSION['msg_error'] = 'Не удалось добавить книгу';
-        header('Location: add_book.php');
+        header('Location: add_books.php');
         exit;
     }
 }
@@ -39,7 +39,7 @@ $genres  = SelectGenre($pdo);
 <body>
 <?php if (!empty($_SESSION['msg_error'])): ?>
     <p><?php echo $_SESSION['msg_error']; ?></p>
-    <?php unset($_SESSION['msg_error']); ?>
+    <?php $_SESSION['msg_error']; ?>
 <?php endif; ?>
 
 <form method="post">

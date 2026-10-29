@@ -19,8 +19,8 @@ $loans = SelectLoans($pdo);
                 <li class="nav-item"><a class="nav-link" href="/loans/show_loan.php">Выдачи</a></li>
                 <li class="nav-item"><a class="nav-link" href="/authors/show_author.php">Авторы</a></li>
                 <li class="nav-item"><a class="nav-link" href="/genres/show_genre.php">Жанры</a></li>
-                <li class="nav-item"><a class="nav-link" href="/books/show_book.php">Книги</a></li>
-                <li class="nav-item"><a class="nav-link" href="/users/show_user.php">Пользователи</a></li>
+                <li class="nav-item"><a class="nav-link" href="/books/show_books.php">Книги</a></li>
+                <li class="nav-item"><a class="nav-link" href="/users/show_users.php">Пользователи</a></li>
                 <li class="nav-item"><a class="nav-link" href="/logic/logic.php">Аналитика</a></li>
             </ul>
         </div>

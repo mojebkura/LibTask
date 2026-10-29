@@ -14,16 +14,14 @@ if (!$loan) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $books_id    = $_POST['books_id'];
-    $users_id    = $_POST['users_id'];
-    $give_date   = $_POST['give_date'];
-    $due_date    = $_POST['due_date'];
+    $books_id  = $_POST['books_id'];
+    $users_id  = $_POST['users_id'];
+    $give_date = $_POST['give_date'];
+    $due_date = $_POST['due_date'];
     $return_date = $_POST['return_date'] ?: null;
-    $status      = $_POST['status'];
+    $status = $_POST['status'];
 
     UpdateLoan($pdo, $id, $books_id, $users_id, $give_date, $due_date, $return_date, $status);
-
-
     if (!empty($loan['return_date']) && empty($return_date)) {
         $book = getBookById($pdo, $books_id);
         if ($book && $book['free_quantity'] > 0) {
@@ -98,11 +96,11 @@ $books = SelectBooks($pdo);
     <select name="status">
         <?php
         $statuses = ['Выдана', 'Возвращена', 'Просрочено', 'Просрочено/Возвращено'];
-        foreach ($statuses as $s):
+        foreach ($statuses as $status):
         ?>
-            <option value="<?php echo $s; ?>"
-                <?php echo ($s === $loan['status']) ? 'selected' : ''; ?>>
-                <?php echo $s; ?>
+            <option value="<?php echo $status; ?>"
+                    <?php echo ($status === $loan['status']) ? 'selected' : ''; ?>>
+                <?php echo $status; ?>
             </option>
         <?php endforeach; ?>
     </select><br><br>
