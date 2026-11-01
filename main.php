@@ -1,14 +1,9 @@
 <?php
 session_start();
-
-if (empty($_SESSION['User'])) {
-    $_SESSION['msg_error'] = 'Сначала войдите в аккаунт';
-    header('Location: index.php');
+if (!isset($_SESSION['User'])) {
+    header('Location: ./index.php');
     exit;
 }
-
-$login = $_SESSION['User']['login'];
-$role  = $_SESSION['User']['role'];
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -38,11 +33,13 @@ $role  = $_SESSION['User']['role'];
 </nav>
 
 <div class="container mt-3">
-    <h1>Главная страница</h1>
-    <p>Пользователь: <b><?php echo $login; ?></b></p>
-    <p>Твоя роль: <?php echo $role; ?></p>
-    <a href="/logout.php">Выйти</a>
+    <h2>Главная страница</h2>
+    <p>Пользоватль: <b><?= htmlspecialchars($_SESSION['User']['login']) ?></b></p>
+    <p>Твоя роль: <?= htmlspecialchars($_SESSION['User']['role']) ?></p>
+    <?php if ($_SESSION['User']['role'] === 'Admin'): ?>
+        <a href="/admin/admin_panel.php" class="btn btn-warning">Перейти в админ-панель</a>
+    <?php endif; ?>
+    <a href="sign/logout.php" class="btn btn-danger">Выйти</a>
 </div>
 
 </body>
-</html>

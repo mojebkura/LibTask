@@ -67,4 +67,6 @@ $loans = SelectLoans($pdo);
     </tbody>
 </table>
 </body>
-    </html><?php
+    </html>
+
+<?php

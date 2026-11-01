@@ -30,7 +30,14 @@ $users = SelectUsers($pdo);
 <div class="container mt-3">
     <h1>Пользователи</h1>
     <table class="table">
-        <thead><tr><th>id</th><th>логин</th><th>почта</th><th>роль</th></tr></thead>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>логин</th>
+            <th>почта</th>
+            <th>роль</th>
+        </tr>
+        </thead>
         <tbody>
         <?php foreach ($users as $user): ?>
             <tr>
