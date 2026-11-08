@@ -16,7 +16,6 @@ if (!isset($_SESSION['User'])) {
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid justify-content-center">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -36,7 +35,9 @@ if (!isset($_SESSION['User'])) {
     <h2>Главная страница</h2>
     <p>Пользоватль: <b><?php echo ($_SESSION['User']['login']) ?></b></p>
     <p>Твоя роль: <?php echo ($_SESSION['User']['role']) ?></p>
+    <?php if ($_SESSION['User']['role'] === 'admin'): ?>
         <a href="/admin_panel.php" class="btn btn-warning">Перейти в админ-панель</a>
+    <?php endif; ?>
 
     <a href="sign/logout.php" class="btn btn-danger">Выйти</a>
 </div>
