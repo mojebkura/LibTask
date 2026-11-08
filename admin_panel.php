@@ -8,6 +8,7 @@ $authors = SelectAuthor($pdo);
 $loans = SelectLoans($pdo);
 $books = SelectBooks($pdo);
 $genres = SelectGenre($pdo);
+$users = SelectUsers($pdo);
 
 ?>
 <!doctype html>
@@ -62,7 +63,7 @@ $genres = SelectGenre($pdo);
 <!--_____________Жанры______________-->
 <h1>Жанры</h1>
 <div class="container mt-3">
-<a href="add_genre.php" class="btn btn-success mb-3">Добавить жанр</a>
+<a href="/genres/add_genre.php" class="btn btn-success mb-3">Добавить жанр</a>
 
 <table class="table">
     <thead>
@@ -78,8 +79,8 @@ $genres = SelectGenre($pdo);
             <td><?php echo $genre['id'] ?></td>
             <td><?php echo $genre['name'] ?></td>
             <td>
-                <a href="delete_genre.php?id=<?php echo $genre['id'] ?>">Удалить</a>
-                <a href="edit_genre.php?id=<?php echo $genre['id'] ?>">Изменить</a>
+                <a href="/genres/delete_genre.php?id=<?php echo $genre['id'] ?>">Удалить</a>
+                <a href="/genres/edit_genre.php?id=<?php echo $genre['id'] ?>">Изменить</a>
             </td>
         </tr>
     <?php endforeach; ?>
@@ -88,7 +89,7 @@ $genres = SelectGenre($pdo);
 </div>
 <!--__________Выдачи___________-->
 <h1>Выдачи</h1>
-<a href="add_loan.php" class="btn btn-success mb-3">Добавить выдачу</a>
+<a href="/loans/add_loan.php" class="btn btn-success mb-3">Добавить выдачу</a>
 <?php if (!empty($_SESSION['message_success'])): ?>
     <p><?php echo $_SESSION['message_success'] ?></p>
     <?php unset($_SESSION['message_success']); ?>
@@ -118,8 +119,8 @@ $genres = SelectGenre($pdo);
             <td><?php echo $loan['return_date']; ?></td>
             <td><?php echo $loan['status']; ?></td>
             <td>
-                <a href="delete_loan.php?id=<?php echo $loan['id']; ?>">Удалить</a>
-                <a href="edit_loan.php?id=<?php echo $loan['id']; ?>">Изменить</a>
+                <a href="/loans/delete_loan.php?id=<?php echo $loan['id']; ?>">Удалить</a>
+                <a href="/loans/edit_loan.php?id=<?php echo $loan['id']; ?>">Изменить</a>
             </td>
         </tr>
     <?php endforeach; ?>
@@ -128,7 +129,7 @@ $genres = SelectGenre($pdo);
 <!--__________Авторы______________-->
 <div class="container mt-3">
     <h1>Авторы</h1>
-    <a href="add_author.php" class="btn btn-success mb-3">Добавить автора</a>
+    <a href="/authors/add_author.php" class="btn btn-success mb-3">Добавить автора</a>
     <table class="table">
         <thead>
         <tr>
@@ -143,8 +144,8 @@ $genres = SelectGenre($pdo);
                 <td><?php echo $author['id'] ?></td>
                 <td><?php echo $author['name'] ?></td>
                 <td>
-                    <a href="delete_author.php?id=<?php echo $author['id'] ?>">Удалить</a>
-                    <a href="edit_author.php?id=<?php echo $author['id'] ?>">Изменить</a>
+                    <a href="/authors/delete_author.php?id=<?php echo $author['id'] ?>">Удалить</a>
+                    <a href="/authors/edit_author.php?id=<?php echo $author['id'] ?>">Изменить</a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -161,6 +162,7 @@ $genres = SelectGenre($pdo);
             <th>логин</th>
             <th>почта</th>
             <th>роль</th>
+            <th>Действие</th>
         </tr>
         </thead>
         <tbody>
@@ -172,6 +174,9 @@ $genres = SelectGenre($pdo);
                 <td><?php echo $user['role']; ?></td>
             </tr>
         <?php endforeach; ?>
+        <td><a href="users/delete_user.php"></a>
+            <a href="users/add_user.php"></a>
+        </td>
         </tbody>
     </table>
 </div>

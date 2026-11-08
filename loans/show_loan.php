@@ -40,12 +40,12 @@ $loans = SelectLoans($pdo);
     <tr>
         <th>id</th>
         <th>книга</th>
-        <th>пользователь</th>
+<!--        <th>пользователь</th>-->
         <th>дата выдачи</th>
         <th>дата возврата (план)</th>
-        <th>дата возврата (факт)</th>
-        <th>статус</th>
-        <th>действие</th>
+<!--        <th>дата возврата (факт)</th>-->
+<!--        <th>статус</th>-->
+<!--        <th>действие</th>-->
     </tr>
     </thead>
     <tbody>
@@ -56,11 +56,11 @@ $loans = SelectLoans($pdo);
             <td><?php echo $loan['user_login']; ?></td>
             <td><?php echo $loan['give_date']; ?></td>
             <td><?php echo $loan['due_date']; ?></td>
-            <td><?php echo $loan['return_date']; ?></td>
-            <td><?php echo $loan['status']; ?></td>
+<!--            <td>--><?php //echo $loan['return_date']; ?><!--</td>-->
+<!--            <td>--><?php //echo $loan['status']; ?><!--</td>-->
             <td>
-                <a href="delete_loan.php?id=<?php echo $loan['id']; ?>">Удалить</a>
-                <a href="edit_loan.php?id=<?php echo $loan['id']; ?>">Изменить</a>
+<!--                <a href="delete_loan.php?id=--><?php //echo $loan['id']; ?><!--">Удалить</a>-->
+<!--                <a href="edit_loan.php?id=--><?php //echo $loan['id']; ?><!--">Изменить</a>-->
             </td>
         </tr>
     <?php endforeach; ?>

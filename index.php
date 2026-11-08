@@ -30,11 +30,11 @@ require_once __DIR__ . '/src/function.php';
 
 <?php
 if (!empty($_SESSION['msg_error'])) {
-    echo '<p>' . htmlspecialchars($_SESSION['msg_error']) . '</p>';
+    echo '<p>' . ($_SESSION['msg_error']) . '</p>';
     unset($_SESSION['msg_error']);
 }
 if (!empty($_SESSION['message_success'])) {
-    echo '<p>' . htmlspecialchars($_SESSION['message_success']) . '</p>';
+    echo '<p>' . ($_SESSION['message_success']) . '</p>';
     unset($_SESSION['message_success']);
 }
 ?>

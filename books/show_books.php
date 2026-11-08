@@ -29,7 +29,7 @@ $books = SelectBooks($pdo);
 
 <div class="container mt-3">
     <h1>Книги</h1>
-    <a href="/books/add_books.php" class="btn btn-success mb-3">Добавить книгу</a>
+<!--    <a href="/books/add_books.php" class="btn btn-success mb-3">Добавить книгу</a>-->
 
     <table class="table">
         <thead>
@@ -41,7 +41,7 @@ $books = SelectBooks($pdo);
             <th>свободно</th>
             <th>автор</th>
             <th>жанр</th>
-            <th>действие</th>
+<!--            <th>действие</th>-->
         </tr>
         </thead>
         <tbody>
@@ -56,10 +56,10 @@ $books = SelectBooks($pdo);
                 <td><?php echo $book['free_quantity']; ?></td>
                 <td><?php echo $author['name']; ?></td>
                 <td><?php echo $genre['name']; ?></td>
-                <td>
-                    <a href="/books/delete_books.php?id=<?php echo $book['id']; ?>">Удалить</a>
-                    <a href="/books/edit_books.php?id=<?php echo $book['id']; ?>">Изменить</a>
-                </td>
+<!--                <td>-->
+<!--                    <a href="/books/delete_books.php?id=--><?php //echo $book['id']; ?><!--">Удалить</a>-->
+<!--                    <a href="/books/edit_books.php?id=--><?php //echo $book['id']; ?><!--">Изменить</a>-->
+<!--                </td>-->
             </tr>
         <?php endforeach; ?>
         </tbody>

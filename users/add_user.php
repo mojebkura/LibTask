@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (AddUser($pdo, $login, $email, $created_at, $password, $role)) {
-        // если сразу заблокирован — выставляем флаг
         if ($is_blocked) {
             $newUser = getUserLogin($pdo, $login);
             UpdateUser($pdo, $newUser['id'], $login, $email, $role, 1);

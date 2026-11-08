@@ -34,11 +34,10 @@ if (!isset($_SESSION['User'])) {
 
 <div class="container mt-3">
     <h2>Главная страница</h2>
-    <p>Пользоватль: <b><?= htmlspecialchars($_SESSION['User']['login']) ?></b></p>
-    <p>Твоя роль: <?= htmlspecialchars($_SESSION['User']['role']) ?></p>
-    <?php if ($_SESSION['User']['role'] === 'Admin'): ?>
-        <a href="/admin/admin_panel.php" class="btn btn-warning">Перейти в админ-панель</a>
-    <?php endif; ?>
+    <p>Пользоватль: <b><?php echo ($_SESSION['User']['login']) ?></b></p>
+    <p>Твоя роль: <?php echo ($_SESSION['User']['role']) ?></p>
+        <a href="/admin_panel.php" class="btn btn-warning">Перейти в админ-панель</a>
+
     <a href="sign/logout.php" class="btn btn-danger">Выйти</a>
 </div>
 

@@ -30,14 +30,14 @@ $authors = SelectAuthor($pdo);
 
 <div class="container mt-3">
     <h1>Авторы</h1>
-    <a href="add_author.php" class="btn btn-success mb-3">Добавить автора</a>
+<!--    <a href="add_author.php" class="btn btn-success mb-3">Добавить автора</a>-->
 
     <table class="table">
         <thead>
         <tr>
             <th scope="col">id</th>
             <th scope="col">имя</th>
-            <th>действие</th>
+<!--            <th>действие</th>-->
         </tr>
         </thead>
         <tbody>
@@ -45,10 +45,10 @@ $authors = SelectAuthor($pdo);
             <tr>
                 <td><?php echo $author['id'] ?></td>
                 <td><?php echo $author['name'] ?></td>
-                <td>
-                    <a href="delete_author.php?id=<?php echo $author['id'] ?>">Удалить</a>
-                    <a href="edit_author.php?id=<?php echo $author['id'] ?>">Изменить</a>
-                </td>
+<!--                <td>-->
+<!--                    <a href="delete_author.php?id=--><?php //echo $author['id'] ?><!--">Удалить</a>-->
+<!--                    <a href="edit_author.php?id=--><?php //echo $author['id'] ?><!--">Изменить</a>-->
+<!--                </td>-->
             </tr>
         <?php endforeach; ?>
         </tbody>

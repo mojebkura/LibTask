@@ -29,14 +29,14 @@ $genres = SelectGenre($pdo);
 
 <div class="container mt-3">
     <h1>Жанры</h1>
-    <a href="add_genre.php" class="btn btn-success mb-3">Добавить жанр</a>
+<!--    <a href="add_genre.php" class="btn btn-success mb-3">Добавить жанр</a>-->
 
     <table class="table">
         <thead>
         <tr>
             <th>id</th>
             <th>название</th>
-            <th>действие</th>
+<!--            <th>действие</th>-->
         </tr>
         </thead>
         <tbody>
@@ -45,8 +45,8 @@ $genres = SelectGenre($pdo);
                 <td><?php echo $genre['id'] ?></td>
                 <td><?php echo $genre['name'] ?></td>
                 <td>
-                    <a href="delete_genre.php?id=<?php echo $genre['id'] ?>">Удалить</a>
-                    <a href="edit_genre.php?id=<?php echo $genre['id'] ?>">Изменить</a>
+<!--                    <a href="delete_genre.php?id=--><?php //echo $genre['id'] ?><!--">Удалить</a>-->
+<!--                    <a href="edit_genre.php?id=--><?php //echo $genre['id'] ?><!--">Изменить</a>-->
                 </td>
             </tr>
         <?php endforeach; ?>
