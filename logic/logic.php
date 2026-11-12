@@ -35,12 +35,12 @@ $topbook    = PopularBook($pdo);
 
     <div>Топ жанр</div>
     <div class="card-value">
-        <?php echo ($topgenre) ? $topgenre['genre_name'] . ' (' . $topgenre['loan_count'] . ')' : '—'; ?>
+        <?php echo $topgenre['genre_name'] ?> (<?php echo $topgenre['loan_count'] ?>)
     </div>
 
     <div>Топ книга</div>
     <div class="card-value">
-        <?php echo ($topbook) ? $topbook['book_name'] . ' (' . $topbook['loan_count'] . ')' : '—'; ?>
+        <?php echo  "{$topbook['book_name']} ({$topbook['loan_count']})" ?>
     </div>
 </div>
 </body>

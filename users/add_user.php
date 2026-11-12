@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email    = $_POST['email'];
     $password = $_POST['password'];
     $role     = $_POST['role'] ?? 'user';
-    $is_blocked = isset($_POST['is_blocked']) ? 1 : 0;
+    $is_blocked = $_POST['is_blocked'] ? 1 : 0;
     $created_at = date('Y-m-d');
 
     if (!$login || !$email || !$password) {
