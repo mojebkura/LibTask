@@ -36,7 +36,7 @@ $topbook    = PopularBook($pdo);
 
 
 <div class="container mt-3">
-    <div>Всего выдач</div>
+    <div>Всего выдач677667</div>
     <div class="card-value"><?php echo $totalloans; ?></div>
 
     <div>Топ жанр</div>
