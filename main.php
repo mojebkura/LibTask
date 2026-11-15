@@ -40,6 +40,7 @@ if (!isset($_SESSION['User'])) {
     <?php endif; ?>
 
     <a href="sign/logout.php" class="btn btn-danger">Выйти</a>
+    <a href="sign/logout.php" class="btn btn-danger">Выйти</a>
 </div>
 
 </body>
