@@ -6,7 +6,7 @@ require_once __DIR__ . '/../src/db.php';
 $id = $_GET['id'];
 $result = DeleteBook($pdo, $id);
 if ($result){
-    header('Location: show_book.php');
+    header('Location: /admin_panel.php');
     exit;
 }
 ?>

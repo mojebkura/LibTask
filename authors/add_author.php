@@ -15,11 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (AddAuthor($pdo, $name)) {
         $_SESSION['message_success'] = 'Автор добавлен';
-        header('Location: show_author.php');
+        header('Location: /admin_panel.php');
         exit;
     } else {
         $_SESSION['msg_error'] = 'Ошибка при добавлении автора';
-        header('Location: add_author.php');
+        header('Location: /admin_panel.php');
         exit;
     }
 }

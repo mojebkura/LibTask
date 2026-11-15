@@ -15,13 +15,11 @@ $books = SelectBooks($pdo);
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid justify-content-center">
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="/loans/show_loan.php">Выдачи</a></li>
-                <li class="nav-item"><a class="nav-link" href="/authors/show_author.php">Авторы</a></li>
-                <li class="nav-item"><a class="nav-link" href="/genres/show_genre.php">Жанры</a></li>
-                <li class="nav-item"><a class="nav-link" href="/books/show_books.php">Книги</a></li>
-                <li class="nav-item"><a class="nav-link" href="/users/show_users.php">Пользователи</a></li>
-                <li class="nav-item"><a class="nav-link" href="/logic/logic.php">Аналитика</a></li>
+            <li class="nav-item"><a class="nav-link" href="/main.php">Основная страница</a></li>
+            <li class="nav-item"><a class="nav-link" href="/authors/show_author.php">Авторы</a></li>
+            <li class="nav-item"><a class="nav-link" href="/genres/show_genre.php">Жанры</a></li>
+            <li class="nav-item"><a class="nav-link" href="/books/show_books.php">Книги</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logic/logic.php">Аналитика</a></li>
             </ul>
         </div>
     </div>
@@ -34,7 +32,6 @@ $books = SelectBooks($pdo);
     <table class="table">
         <thead>
         <tr>
-            <th>id</th>
             <th>название</th>
             <th>дата публикации</th>
             <th>всего</th>
@@ -49,7 +46,6 @@ $books = SelectBooks($pdo);
             <?php $author = getAuthorById($pdo, $book['author_id']); ?>
             <?php $genre  = getGenreById($pdo, $book['genre_id']); ?>
             <tr>
-                <td><?php echo $book['id']; ?></td>
                 <td><?php echo $book['name']; ?></td>
                 <td><?php echo $book['publish_date']; ?></td>
                 <td><?php echo $book['all_quantity']; ?></td>

@@ -8,7 +8,7 @@ $genre = getGenreById($pdo, $id);
 
 if (!$genre) {
     $_SESSION['msg_error'] = 'Жанр не найден';
-    header('Location: show_genre.php');
+    header('Location: /admin_panel.php');
     exit;
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     UpdateGenre($pdo, $id, $name);
     $_SESSION['message_success'] = 'Жанр обновлён';
-    header('Location: show_genre.php');
+    header('Location: /admin_panel.php');
     exit;
 }
 ?>

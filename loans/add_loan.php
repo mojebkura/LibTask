@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!$book || $book['free_quantity'] <= 0) {
         $_SESSION['msg_error'] = 'Нет свободных экземпляров этой книги';
-        header('Location: add_loan.php');
+        header('Location: /admin_panel.php');
         exit;
     }
 
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $book['genre_id']);
 
         $_SESSION['message_success'] = 'Выдача добавлена';
-        header('Location: show_loan.php');
+        header('Location: /admin_panel.php');
         exit;
     }
     $_SESSION['msg_error'] = 'Не удалось добавить выдачу';

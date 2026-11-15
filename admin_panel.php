@@ -1,8 +1,8 @@
 <?php
 session_start();
 require __DIR__ . '/admin_check.php';
-require './src/db.php';
-require './src/function.php';
+require __DIR__ . '/src/db.php';
+require __DIR__ . '/src/function.php';
 
 $authors = SelectAuthor($pdo);
 $loans = SelectLoans($pdo);
@@ -19,12 +19,13 @@ $users = SelectUsers($pdo);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Админ Панель</title>
+    <a href="main.php">Обратно</a>
 </head>
 <body>
 <!--___________________Книги________-->
 <div class="container mt-3">
     <h1>Книги</h1>
-    <a href="/books/add_books.php" class="btn btn-success mb-3">Добавить книгу</a>
+    <a href="books/add_books.php" class="btn btn-success mb-3">Добавить книгу</a>
 
     <table class="table">
         <thead>
@@ -52,47 +53,54 @@ $users = SelectUsers($pdo);
                 <td><?php echo $author['name']; ?></td>
                 <td><?php echo $genre['name']; ?></td>
                 <td>
-                    <a href="/books/delete_books.php?id=<?php echo $book['id']; ?>">Удалить</a>
-                    <a href="/books/edit_books.php?id=<?php echo $book['id']; ?>">Изменить</a>
+                    <a href="books/delete_books.php?id=<?php echo $book['id']; ?>">Удалить</a>
+                    <a href="books/edit_books.php?id=<?php echo $book['id']; ?>">Изменить</a>
                 </td>
             </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+
 <!--_____________Жанры______________-->
 <h1>Жанры</h1>
 <div class="container mt-3">
-<a href="/genres/add_genre.php" class="btn btn-success mb-3">Добавить жанр</a>
+    <a href="genres/add_genre.php" class="btn btn-success mb-3">Добавить жанр</a>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>название</th>
-        <th>действие</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach($genres as $genre): ?>
+    <table class="table">
+        <thead>
         <tr>
-            <td><?php echo $genre['id'] ?></td>
-            <td><?php echo $genre['name'] ?></td>
-            <td>
-                <a href="/genres/delete_genre.php?id=<?php echo $genre['id'] ?>">Удалить</a>
-                <a href="/genres/edit_genre.php?id=<?php echo $genre['id'] ?>">Изменить</a>
-            </td>
+            <th>id</th>
+            <th>название</th>
+            <th>действие</th>
         </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <?php foreach($genres as $genre): ?>
+            <tr>
+                <td><?php echo $genre['id'] ?></td>
+                <td><?php echo $genre['name'] ?></td>
+                <td>
+                    <a href="genres/delete_genre.php?id=<?php echo $genre['id'] ?>">Удалить</a>
+                    <a href="genres/edit_genre.php?id=<?php echo $genre['id'] ?>">Изменить</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
 </div>
+
 <!--__________Выдачи___________-->
 <h1>Выдачи</h1>
-<a href="/loans/add_loan.php" class="btn btn-success mb-3">Добавить выдачу</a>
+<a href="loans/add_loan.php" class="btn btn-success mb-3">Добавить выдачу</a>
 <?php if (!empty($_SESSION['message_success'])): ?>
-    <p><?php echo $_SESSION['message_success'] ?></p>
+    <p><?php echo $_SESSION['message_success']; ?></p>
     <?php unset($_SESSION['message_success']); ?>
+<?php endif; ?>
+
+<?php if (!empty($_SESSION['message_error'])): ?>
+    <p><?php echo $_SESSION['message_error']; ?></p>
+    <?php unset($_SESSION['message_error']); ?>
 <?php endif; ?>
 
 <table class="table">
@@ -119,17 +127,18 @@ $users = SelectUsers($pdo);
             <td><?php echo $loan['return_date']; ?></td>
             <td><?php echo $loan['status']; ?></td>
             <td>
-                <a href="/loans/delete_loan.php?id=<?php echo $loan['id']; ?>">Удалить</a>
-                <a href="/loans/edit_loan.php?id=<?php echo $loan['id']; ?>">Изменить</a>
+                <a href="loans/delete_loan.php?id=<?php echo $loan['id']; ?>">Удалить</a>
+                <a href="loans/edit_loan.php?id=<?php echo $loan['id']; ?>">Изменить</a>
             </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
+
 <!--__________Авторы______________-->
 <div class="container mt-3">
     <h1>Авторы</h1>
-    <a href="/authors/add_author.php" class="btn btn-success mb-3">Добавить автора</a>
+    <a href="authors/add_author.php" class="btn btn-success mb-3">Добавить автора</a>
     <table class="table">
         <thead>
         <tr>
@@ -144,14 +153,15 @@ $users = SelectUsers($pdo);
                 <td><?php echo $author['id'] ?></td>
                 <td><?php echo $author['name'] ?></td>
                 <td>
-                    <a href="/authors/delete_author.php?id=<?php echo $author['id'] ?>">Удалить</a>
-                    <a href="/authors/edit_author.php?id=<?php echo $author['id'] ?>">Изменить</a>
+                    <a href="authors/delete_author.php?id=<?php echo $author['id'] ?>">Удалить</a>
+                    <a href="authors/edit_author.php?id=<?php echo $author['id'] ?>">Изменить</a>
                 </td>
             </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+
 <!--___________Пользователи______________-->
 <div class="container mt-3">
     <h1>Пользователи</h1>
@@ -172,11 +182,11 @@ $users = SelectUsers($pdo);
                 <td><?php echo $user['login']; ?></td>
                 <td><?php echo $user['email']; ?></td>
                 <td><?php echo $user['role']; ?></td>
+                <td>
+                    <a href="users/delete_user.php?id=<?php echo $user['id']; ?>">Удалить</a>
+                </td>
             </tr>
         <?php endforeach; ?>
-        <td><a href="users/delete_user.php"></a>
-            <a href="users/add_user.php"></a>
-        </td>
         </tbody>
     </table>
 </div>

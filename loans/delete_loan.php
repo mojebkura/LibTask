@@ -24,6 +24,6 @@ if ($loan && DeleteLoan($pdo, $id)) {
     $_SESSION['msg_error'] = 'Не удалось удалить выдачу';
 }
 
-header('Location: show_loan.php');
+header('Location: /admin_panel.php');
 exit;
 

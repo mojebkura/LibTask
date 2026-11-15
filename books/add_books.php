@@ -19,11 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (AddBook($pdo, $name, $publish_date, $all_quantity, $free_quantity, $author_id, $genre_id)) {
         $_SESSION['message_success'] = 'Книга добавлена';
-        header('Location: show_books.php');
+        header('Location: /admin_panel.php');
         exit;
     } else {
         $_SESSION['msg_error'] = 'Не удалось добавить книгу';
-        header('Location: add_books.php');
+        header('Location: /admin_panel.php');
         exit;
     }
 }

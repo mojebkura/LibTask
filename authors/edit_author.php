@@ -8,7 +8,7 @@ $author = getAuthorById($pdo, $id);
 
 if (!$author) {
     $_SESSION['msg_error'] = 'Автор не найден';
-    header('Location: show_author.php');
+    header('Location: /admin_panel.php');
     exit;
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     UpdateAuthor($pdo, $id, $name);
     $_SESSION['message_success'] = 'Автор обновлён';
-    header('Location: show_author.php');
+    header('Location: /admin_panel.php');
     exit;
 }
 ?>

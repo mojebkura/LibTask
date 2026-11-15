@@ -9,7 +9,7 @@ $book = getBookById($pdo, $id);
 
 if (!$book) {
     $_SESSION['msg_error'] = 'Книга не найдена';
-    header('Location: /books/show_books.php');
+    header('Location: /admin_panel.php');
     exit;
 }
 
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     UpdateBook($pdo, $id, $name, $publish_date, $all_quantity, $free_quantity, $author_id, $genre_id);
     $_SESSION['message_success'] = 'Книга обновлена';
-    header('Location: /books/show_books.php');
+    header('Location: /admin_panel.php');
     exit;
 }
 

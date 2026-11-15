@@ -9,7 +9,7 @@ $loan = getLoanById($pdo, $id);
 
 if (!$loan) {
     $_SESSION['msg_error'] = 'Выдача не найдена';
-    header('Location: show_loan.php');
+    header('Location: /admin_panel.php');
     exit;
 }
 
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $_SESSION['message_success'] = 'Выдача обновлена';
-    header('Location: show_loan.php');
+    header('Location: /admin_panel.php');
     exit;
 }
 

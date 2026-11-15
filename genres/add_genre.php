@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (AddGenre($pdo, $name)) {
         $_SESSION['message_success'] = 'Жанр добавлен';
-        header('Location: show_genre.php');
+        header('Location: /admin_panel.php');
         exit;
     } else {
         $_SESSION['msg_error'] = 'Ошибка при добавлении жанра';
