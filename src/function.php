@@ -279,3 +279,43 @@ function PopularBook($pdo) {
     $stmt = $pdo->query($sql);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+//______________ЗАПРОСЫ________________
+
+function AddRequest($pdo, $user_name, $book_name) {
+    $sql = "INSERT INTO request(user_name, book_name)
+            VALUES (:user_name, :book_name)";
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute([
+        ':user_name' => $user_name,
+        ':book_name' => $book_name
+    ]);
+}
+function SelectRequests($pdo) {
+    $sql = "SELECT * FROM request";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+function getRequestById($pdo, $id) {
+    $sql = "SELECT * FROM request WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':id' => $id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+function UpdateRequest($pdo, $id, $user_name, $book_name) {
+    $sql = "UPDATE request
+            SET user_name = :user_name,
+                book_name = :book_name
+            WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute([
+        ':id'        => $id,
+        ':user_name' => $user_name,
+        ':book_name' => $book_name
+    ]);
+}
+function DeleteRequest($pdo, $id) {
+    $sql = "DELETE FROM request WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute([':id' => $id]);
+}
